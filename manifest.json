@@ -3,7 +3,11 @@
 
   "name": "Sound Destroyer",
   "description": "This extension removes inactive tabs that start making noise.",
-  "version": "1.0",
+  "version": "0.1",
+
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
 
   "background": {
     "scripts": ["background.js"],
@@ -11,6 +15,7 @@
   },
 
   "permissions": [
-    "tabs"
+    "tabs",
+    "storage"
   ]
 }
