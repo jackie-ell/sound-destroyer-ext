@@ -32,10 +32,22 @@ function updateList() {
 
   chrome.storage.sync.get(null, (items) => {
     for(item in items) {
-      let node = document.createElement("LI")
+      // anchor button
+      let xBtn = document.createElement("A")
+      let xClass = document.createAttribute("class")
+      xClass.value = "fa fa-times"
+      let xHref = document.createAttribute("href")
+      xHref.value = ""
+      xBtn.setAttributeNode(xClass)
+      xBtn.setAttributeNode(xHref)
+
+      // list item
+      let liNode = document.createElement("LI")
       let textnode = document.createTextNode(item)
-      node.appendChild(textnode)
-      list.appendChild(node)
+      liNode.appendChild(xBtn)
+      liNode.appendChild(textnode)
+
+      list.appendChild(liNode)
     }
   })
 }
