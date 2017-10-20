@@ -1,8 +1,19 @@
-// Destroy audible, inactive tabs
+// Returns true if site is trusted, otherwise false
+
+function isTrusted(url) {
+
+  chrome.storage.sync.get(url, (items) => {
+    if(items[url]) {
+      return true
+    }
+    return false
+  })
+}
+
+// Destroy audible, inactive, distrusted tabs
 
 function muteTab(tab){
-  if(tab["audible"] && !tab["highlighted"]) {
-    console.log(tab)
+  if(tab["audible"] && !tab["highlighted"] && isTrusted(tab["url"])) {
     chrome.tabs.update(tab["id"], {"muted": true})
   }
   else {
