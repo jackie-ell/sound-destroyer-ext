@@ -1,24 +1,30 @@
-function saveSite(name) {
-  if(!name) {
+// Save site with given url
+
+function saveSite(url) {
+  if(!url) {
     createMessage("Invalid site name.")
     return
   }
 
   let newObj = {}
-  newObj[name] = name
+  newObj[url] = url
 
   chrome.storage.sync.set(newObj, () => {
-    createMessage(`Added ${name}`)
+    createMessage(`Added ${url}`)
   })
 
   updateList()
 }
+
+// Output a message beneath site list
 
 function createMessage(str) {
   const message = document.querySelector('#message')
 
   message.innerHTML = str
 }
+
+// Update list of trusted sites
 
 function updateList() {
   const list = document.querySelector('#site-list')
