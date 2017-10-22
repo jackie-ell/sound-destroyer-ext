@@ -2,7 +2,7 @@
 
 function saveSite(url) {
   if(!url) {
-    createMessage("Invalid site name.")
+    createMessage("Invalid site name.", "red")
     return
   }
 
@@ -10,7 +10,7 @@ function saveSite(url) {
   newObj[url] = url
 
   chrome.storage.sync.set(newObj, () => {
-    createMessage(`Added ${url}`)
+    createMessage(`Added ${url}`, "green")
   })
 
   updateList()
@@ -18,9 +18,10 @@ function saveSite(url) {
 
 // Output a message beneath site list
 
-function createMessage(str) {
+function createMessage(str, color) {
   const message = document.querySelector('#message')
 
+  message.style.color = color
   message.innerHTML = str
 }
 
