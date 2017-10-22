@@ -4,9 +4,10 @@
 To create a Chrome extension that stops annoying, unexpected noises, such as loud video advertisements.
 
 ### TODO:
-* Allow trusted sites to trust the entire website, not just a single page
+* Site removal button logic
 * Beautify the interface
 * Create an icon
+* Remove some code redundancies 🤷‍♀️
 
 ## What it does
 Mutes tabs that are:
