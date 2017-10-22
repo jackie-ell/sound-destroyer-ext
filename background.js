@@ -12,10 +12,26 @@ function isTrusted(url) {
   })
 }
 
+// Get host from URL
+// TODO: Move this redundency to another file
+
+function getHost(url) {
+  let hostRegex = /[\w-]+(\.[\w-]+)+/
+
+  let result = hostRegex.exec(url)
+
+  if(!result)
+    return null
+  else
+    return result[0]
+}
+
 // Destroy audible, inactive, distrusted tabs
 
 function muteTab(tab){
-  isTrusted(tab["url"])
+  let url = getHost(tab["url"])
+
+  isTrusted(url)
     .then(() => {
       chrome.tabs.update(tab["id"], {"muted": false})
     })
@@ -28,7 +44,7 @@ function muteTab(tab){
     })
 }
 
-// Other tab starts playing sound
+// Other tab starts playing sound, mute it!
 
 chrome.tabs.onUpdated.addListener((id, info, tab) => {
   muteTab(tab)
