@@ -1,6 +1,21 @@
+// Get host from URL
+
+function getHost(url) {
+  let hostRegex = /[\w-]+(\.[\w-]+)+/
+
+  let result = hostRegex.exec(url)
+
+  if(!result)
+    return null
+  else
+    return result[0]
+}
+
 // Save site with given url
 
 function saveSite(url) {
+  url = getHost(url)
+
   if(!url) {
     createMessage("Invalid site name.", "red")
     return
