@@ -5,33 +5,21 @@
     <title>Sound Destroyer Extension Popup</title>
     <script src="popup.js"></script>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <style>
-    body {
-      width: 300px;
-    }
-    ul {
-      padding: 0px;
-    }
-    li {
-      list-style: none;
-    }
-    li > a {
-      color: red;
-      text-decoration: none;
-      padding-right: 5px;
-    }
-    </style>
+    <link rel="stylesheet" type="text/css" href="popup.css">
   </head>
   <body>
-    <h5>Trusted Sites</h5>
-    <ul id="site-list">
-      <li>Example site 1</li>
-      <li>Example site 2</li>
-    </ul>
+    <div class="site-box">
+      <p>Trusted Sites</p>
+      <ul id="site-list">
+        <li>Example site 1</li>
+        <li>Example site 2</li>
+      </ul>
+    </div>
+
     <div id="message">
 
     </div>
-    <input id="site-input"/><button id="add-btn">Add Site</button>
+    <input id="site-input" placeholder="Enter site name..."/><button id="add-btn">Add Site</button>
     <button id="add-current-btn">Add Current Site</button
   </body>
 </html>
