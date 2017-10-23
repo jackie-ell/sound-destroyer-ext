@@ -96,10 +96,15 @@ document.addEventListener("DOMContentLoaded", () => {
     saveSite(input.value)
   })
 
-  addCurrentBtn.addEventListener("click", () => {
-    chrome.tabs.query({"highlighted": true, "currentWindow": true},(tabs) => {
-      let {url} = tabs[0]
-      saveSite(url)
-    })
+  chrome.tabs.query({"highlighted": true, "currentWindow": true},(tabs) => {
+    let {url} = tabs[0]
+    input.value = getHost(url)
   })
+
+  // addCurrentBtn.addEventListener("click", () => {
+  //   chrome.tabs.query({"highlighted": true, "currentWindow": true},(tabs) => {
+  //     let {url} = tabs[0]
+  //     saveSite(url)
+  //   })
+  // })
 })
