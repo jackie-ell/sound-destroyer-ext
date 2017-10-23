@@ -26,3 +26,12 @@ li > a {
   margin: 5px 0 5px 0;
   height: 20px;
 }
+.box-title{
+  position: fixed;
+  background-color: white;
+  top: -9px;
+}
+.space {
+  display: flex;
+  justify-content: space-between;
+}
