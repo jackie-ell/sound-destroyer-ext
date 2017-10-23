@@ -80,6 +80,7 @@ function updateList() {
 
 function removeSite(site) {
   chrome.storage.sync.remove(site, () => {
+    createMessage(`Removed ${site}`, "green")
     updateList()
   })
 }
