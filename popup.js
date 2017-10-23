@@ -54,8 +54,11 @@ function updateList() {
       xClass.value = "fa fa-times"
       let xHref = document.createAttribute("href")
       xHref.value = ""
+      let xData = document.createAttribute("data-site")
+      xData.value = `${item}`
       xBtn.setAttributeNode(xClass)
       xBtn.setAttributeNode(xHref)
+      xBtn.setAttributeNode(xData)
 
       // list item
       let liNode = document.createElement("LI")
@@ -64,7 +67,20 @@ function updateList() {
       liNode.appendChild(textnode)
 
       list.appendChild(liNode)
+
+      // Button logic
+      xBtn.addEventListener("click", (event) => {
+        event.preventDefault()
+        let site = event.target.attributes["data-site"].nodeValue
+        removeSite(site)
+      })
     }
+  })
+}
+
+function removeSite(site) {
+  chrome.storage.sync.remove(site, () => {
+    updateList()
   })
 }
 
