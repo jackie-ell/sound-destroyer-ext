@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Sound Destroyer",
-  "description": "This extension removes inactive tabs that start making noise.",
+  "description": "Sound Destroyer mutes noisy, intrusive websites. Only trusted sites will make noise on inactive tabs.",
   "version": "0.1",
 
   "browser_action": {
