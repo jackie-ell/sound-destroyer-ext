@@ -4,7 +4,6 @@
 To create a Chrome extension that stops annoying, unexpected noises, such as loud video advertisements.
 
 ### TODO:
-* Create an icon
 * Remove some code redundancies 🤷‍♀️
 * Make trusted sites format indifferent (unopinionated)
 
